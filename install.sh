@@ -11,6 +11,6 @@ cd ./node_modules
 curl https://unpkg.com/htmx.org@1.9.10/dist/htmx.min.js -o ./htmx.min.js
 
 pip install flask
-pip install Jinja2
+# pip install Jinja2
 
 echo "Done!"
