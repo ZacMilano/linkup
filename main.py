@@ -40,18 +40,3 @@ def profile(name: str):
   user = db.users.find_one({'name': name})
   print(user)
   return render_template('profile.html', user=user)
-
-class User:
-  def __init__(self, username, email, links=[]):
-    self.username = username
-    self.email = email
-    self.links = links
-    self.created_at = datetime.now()
-  
-  def withLink(self, url, title):
-    return Link(url, title)
-
-class Link:
-  def __init__(self, url, title):
-    self.url = url
-    self.title = title
