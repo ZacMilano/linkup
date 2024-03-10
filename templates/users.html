@@ -1,12 +1,10 @@
-{% extends 'layout.html' %}
-
-{% block content %}
-
 {% if users %}
+<p class="text-xl">Found {{ users|length }} User(s)</p>
+
 <ul>
   {% for user in users %}
   <li>
-    <a href="/p/{{ user.name }}"
+    <a href="/p/{{ user.name }}" hx-get="/p/{{ user.name }}" hx-target="body" hx-push-url="true"
       class="block p-4 bg-slate-200 text-blue-500 rounded hover:bg-slate-100 focus-within:bg-slate-100 hover:underline focus-within:underline transition">
       {{ user.name }}
     </a>
@@ -16,5 +14,3 @@
 {% else %}
 <p class="text-gray-400 italic">(so empty)</p>
 {% endif %}
-
-{% endblock %}

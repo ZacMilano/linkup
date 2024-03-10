@@ -6,7 +6,7 @@
   <h1 class="text-6xl">Link Me Up Scotty</h1>
 </header>
 
-<form class="bg-gray-600 p-4 rounded flow grid" action="/users" method="post">
+<form class="bg-gray-600 p-4 rounded flow grid" hx-post="/users" hx-target="body" hx-push-url="true">
   <div class="grid">
     <label for="name" class="text-white bold">
       Name

@@ -4,7 +4,9 @@
 
 <header class="bg-gray-800 text-white p-4 full-width content-grid">
   <h1 class="text-6xl">Profile</h1>
-  <p class="text-xl opacity-80"><a href="/">&larr; Home</a></p>
+  <p class="text-xl opacity-80">
+    <a href="/" hx-get="/" hx-target="body" hx-push-url="true">&larr; Home</a>
+  </p>
 </header>
 
 {% if user %}
