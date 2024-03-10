@@ -8,11 +8,13 @@
   <script src="/static/js/node_modules/htmx.min.js"></script>
   <script src="/static/js/node_modules/tailwind.min.js"></script>
 
+  <link rel="stylesheet" href="/static/css/breakout.css">
+
   <title>HTMX &amp; Flask</title>
 </head>
 
 <body>
-  <main>
+  <main class="content-grid">
     {% block content %}
     {% endblock %}
   </main>
