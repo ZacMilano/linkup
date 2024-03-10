@@ -2,13 +2,36 @@
 
 {% block content %}
 
-<h1>Using two templates!</h1>
+<header class="bg-gray-800 text-white p-4 full-width content-grid">
+  <h1 class="text-6xl">Link Me Up Scotty</h1>
+</header>
 
-<p>testing</p>
+<form class="bg-gray-600 p-4 rounded flow grid" action="/users" method="post">
+  <div class="grid">
+    <label for="name" class="text-white bold">
+      Name
+    </label>
+    <input type="text" id="name" name="name" placeholder="Your name.." class="rounded p-2">
+  </div>
 
-<a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" hx-get="/profile" hx-replace-url="true"
-  hx-target="body">
-  Go to Profile
-</a>
+  <div class="grid">
+    <label for="email" class="text-white bold">
+      Email
+    </label>
+    <input type="email" id="email" name="email" placeholder="Your email.." class="rounded p-2">
+  </div>
+
+  <button class="bg-blue-500 text-white p-4 rounded block">Submit</button>
+</form>
+
+<div hx-target="next section">
+  <button hx-get="/users" class="bg-blue-500 text-white p-4 rounded">Show All Users</button>
+
+  <button hx-delete="/red-alert" hx-confirm="you sure bout that?" class="bg-red-500 text-white p-4 rounded">Delete
+    All Users
+  </button>
+</div>
+
+<section></section>
 
 {% endblock %}
