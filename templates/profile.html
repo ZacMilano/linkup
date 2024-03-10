@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<header class="bg-gray-800 text-white p-4 full-width content-grid">
+  <h1 class="text-6xl">Profile</h1>
+</header>
+
+{% if user %}
+<section>
+  <p>Username: {{ user.username }}</p>
+  <p>Email: {{ user.email }}</p>
+  <p>Created: {{ user.created_at }}</p>
+</section>
+
+<section>
+  <ul class="grid grid-cols-1 gap-1 mx-auto">
+    {% for link in user.links %}
+    <li>
+      <a href="{{ link.url }}" class="block p-4 text-blue-500 bg-slate-200 hover:underline h-100 w-100 rounded">
+        {{ link.title }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% else %}
+<div class="p-4">
+  <p>No user found</p>
+</div>
+{% endif %}
+
+{% endblock %}
