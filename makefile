@@ -1,7 +1,11 @@
-.PHONY: install go
+.PHONY: install dev serve start
 
 install:
 	./install.sh
 
-go:
+dev:
 	python -m flask --app main run
+serve:
+	make dev
+start:
+	make dev
