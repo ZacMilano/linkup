@@ -16,5 +16,6 @@ curl https://cdn.tailwindcss.com/3.4.1 -o ./tailwind.min.js
 pip install flask
 # pip install Jinja2
 python -m pip install "pymongo[srv]"
+pip install python-dotenv
 
 echo "Done!"
