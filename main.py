@@ -16,7 +16,7 @@ def hello_world():
 @app.route('/red-alert', methods=['DELETE'])
 def red_alert():
   db.users.delete_many({})
-  return '<h1>Deleted all users</h1>'
+  return '<p>Deleted all users</p>'
 
 @app.route('/users', methods=['GET'])
 def get_all_users():
