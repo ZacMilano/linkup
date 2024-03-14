@@ -40,3 +40,14 @@ def profile(name: str):
   user = db.users.find_one({'name': name})
   print(user)
   return render_template('profile.html', user=user)
+
+@app.route('/users/<name>/links', methods=['POST'])
+def add_link(name: str):
+  user = db.users.find_one({'name': name})
+  link = fields_from_request_form(['url', 'title'], request.form)
+  if 'links' not in user:
+    user['links'] = []
+  user['links'].append(link)
+  db.users.update_one({'_id': user['_id']}, {'$set': user})
+  return render_template('profile.html', user=user)
+  # user['links'].append(link)
