@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from datetime import datetime
+from uuid import uuid4
+
 from App.mongo import db
 
 app = Flask(__name__)
@@ -47,7 +49,15 @@ def add_link(name: str):
   link = fields_from_request_form(['url', 'title'], request.form)
   if 'links' not in user:
     user['links'] = []
+  link['created_at'] = datetime.now()
+  link['id'] = uuid4()
   user['links'].append(link)
   db.users.update_one({'_id': user['_id']}, {'$set': user})
   return render_template('profile.html', user=user)
-  # user['links'].append(link)
+
+@app.route('/users/<username>/links/<link_id>', methods=['DELETE'])
+def delete_link(username: str, link_id: str):
+  user = db.users.find_one({'name': username})
+  user['links'] = [link for link in user['links'] if str(link['id']) != link_id]
+  db.users.update_one({'_id': user['_id']}, {'$set': user})
+  return render_template('profile.html', user=user)

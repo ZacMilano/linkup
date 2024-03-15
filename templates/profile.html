@@ -36,6 +36,11 @@
         ">
         {{ link.title }}
       </a>
+
+      <button hx-delete="/users/{{ user.name }}/links/{{ link.id }}" hx-target="body"
+        class="bg-red-500 text-white p-4 rounded">
+        Delete
+      </button>
     </li>
     {% endfor %}
   </ul>
@@ -50,14 +55,14 @@
       <label for="title" class="bold text-white">
         Title
       </label>
-      <input type="text" id="title" name="title" placeholder="Title..." class="rounded p-2">
+      <input type="text" id="title" name="title" placeholder="Title..." class="rounded p-2" required>
     </div>
 
     <div class="grid">
       <label for="url" class="bold text-white">
         URL
       </label>
-      <input type="url" id="url" name="url" placeholder="URL..." class="rounded p-2">
+      <input type="url" id="url" name="url" placeholder="URL..." class="rounded p-2" required>
     </div>
 
     <button class="bg-blue-500 text-white p-4 rounded block">Add Link</button>

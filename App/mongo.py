@@ -9,6 +9,7 @@ load_dotenv()
 # Set the Stable API version when creating a new client
 client = MongoClient(
   f"mongodb+srv://{environ['MONGO_USER']}:{environ['MONGO_PASSWORD']}@linkmeupscotty.3uavg9y.mongodb.net/?retryWrites=true&w=majority&appName=LinkMeUpScotty",
+  uuidRepresentation='standard',
   server_api=ServerApi('1')
 )
 
