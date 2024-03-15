@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect
 from datetime import datetime
 from uuid import uuid4
 
-from App.mongo import db
+from app.database.mongo import db
 
 app = Flask(__name__)
 
