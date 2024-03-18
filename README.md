@@ -15,3 +15,9 @@ make dev
 ```bash
 make clean
 ```
+
+## notes for Zac
+
+- [ ] at some point switch over to django
+- [ ] but first, plan and build out some main functionality
+  - [ ]
