@@ -20,4 +20,12 @@ make clean
 
 - [ ] at some point switch over to django
 - [ ] but first, plan and build out some main functionality
-  - [ ]
+  - [ ] create account
+  - [ ] create links
+  - [ ] list links
+  - [ ] delete link
+  - [ ] change all relevant fields of a link
+  - [ ] pretty designs (scour the internet)
+  - [ ] add other info to profile
+  - [ ] sign in with Google
+  - [ ] integrate with other services
