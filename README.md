@@ -29,3 +29,4 @@ make clean
   - [ ] add other info to profile
   - [ ] sign in with Google
   - [ ] integrate with other services
+  - [x] start mockups for profile page
