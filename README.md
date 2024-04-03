@@ -30,3 +30,4 @@ make clean
   - [ ] sign in with Google
   - [ ] integrate with other services
   - [x] start mockups for profile page
+  - [x] continue mockups for profile page -- different style of socials
