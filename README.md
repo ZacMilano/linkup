@@ -31,4 +31,4 @@ make clean
   - [ ] integrate with other services
   - [x] start mockups for profile page
   - [x] continue mockups for profile page -- different style of socials
-  - [x] not much today, just checking in. i should probably change branches, like don't do this main development/planning stuff on the django feature branch
+  - [x] nothing today, taxes and apartment application have sapped my energy
