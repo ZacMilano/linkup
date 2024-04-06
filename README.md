@@ -31,4 +31,4 @@ make clean
   - [ ] integrate with other services
   - [x] start mockups for profile page
   - [x] continue mockups for profile page -- different style of socials
-  - [x] nothing today, taxes and apartment application have sapped my energy
+  - [x] nothing today, life has sapped my energy. still want to check in!
