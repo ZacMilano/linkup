@@ -18,8 +18,10 @@ make clean
 
 ## notes for Zac
 
-- [ ] at some point switch over to django
-- [ ] but first, plan and build out some main functionality
+- [ ] i should prioritize these tasks, and determine which ones are done.
+- [ ] i also want to get off this dang `django` branch, and/or fully switch to django. i think switch.
+- [ ] i seem to prefer developing first and then refining design. an iterative approach
+- [ ] plan and build out some main functionality
   - [ ] create account
   - [ ] create links
   - [ ] list links
@@ -29,6 +31,4 @@ make clean
   - [ ] add other info to profile
   - [ ] sign in with Google
   - [ ] integrate with other services
-  - [x] start mockups for profile page
-  - [x] continue mockups for profile page -- different style of socials
-  - [x] nothing today, life has sapped my energy. still want to check in!
+  - [ ] mockups for profile page -- different style of socials `STARTED`
