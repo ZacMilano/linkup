@@ -1,7 +1,5 @@
-db = None
-
 # keep everything but db out of global scope
-if True:
+def create_db_client():
   from os import environ
   from dotenv import load_dotenv
   from pymongo.mongo_client import MongoClient
@@ -14,11 +12,16 @@ if True:
     uuidRepresentation='standard',
     server_api=ServerApi('1')
   )
-  db = client.link_me_up_scotty
+  database = client.link_me_up_scotty
 
   # Send a ping to confirm a successful connection
   try:
     ping = client.link_me_up_scotty.command('ping')
     print('ping successful!' if ping['ok'] else 'ping failed.')
+    return database
   except Exception as e:
+    print("!!!EXCEPTION!!!")
     print(e)
+    return None
+
+db = create_db_client()
