@@ -68,7 +68,7 @@
 
     {% if user.links %}
     <ul class="grid grid-cols-1 gap-1 mx-auto gap-5">
-      {% for link in user.links %}
+      {% for link in user.links|reverse %}
       <li class="flex gap-4">
         <button class="copy-button
         grow
