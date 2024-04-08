@@ -2,36 +2,35 @@
 
 {% block content %}
 
-<header class="bg-gray-800 text-white p-4 full-width content-grid">
-  <h1 class="text-6xl">Link Me Up Scotty</h1>
-</header>
+<div class="grid gap-10 full-width content-grid">
+  <header class="bg-gray-800 text-white p-4 content-grid full-width">
+    <h1 class="text-6xl">Link Me Up Scotty</h1>
+  </header>
 
-<form class="bg-gray-600 p-4 rounded flow grid" hx-post="/users" hx-target="body" hx-push-url="true">
-  <div class="grid">
-    <label for="name" class="text-white bold">
-      Name
-    </label>
-    <input type="text" id="name" name="name" placeholder="Your name.." class="rounded p-2">
-  </div>
+  <form class="rounded grid gap-8" hx-post="/users" hx-target="body">
+    <div class="grid gap-2">
+      <label for="name" class="bold">
+        Project name:
+      </label>
+      <input required type="text" id="name" name="name" placeholder="Name your project" class="rounded p-2 border">
+    </div>
 
-  <div class="grid">
-    <label for="email" class="text-white bold">
-      Email
-    </label>
-    <input type="email" id="email" name="email" placeholder="me@example.com" class="rounded p-2">
-  </div>
+    <div class="grid lg:grid-cols-3 gap-2 text-xl text-white">
+      <button class="rounded bg-green-700 px-6 py-4 uppercase" hx-push-url="true">Create Project</button>
 
-  <button class="bg-blue-500 text-white p-4 rounded block">Submit</button>
-</form>
+      <button type="button" hx-get="/users" hx-target="next section" class="bg-blue-900 p-4 rounded uppercase">
+        Show All Projects
+      </button>
 
-<div hx-target="next section">
-  <button hx-get="/users" class="bg-blue-500 text-white p-4 rounded">Show All Users</button>
-
-  <button hx-delete="/red-alert" hx-confirm="you sure bout that?" class="bg-red-500 text-white p-4 rounded">Delete
-    All Users
-  </button>
+      <button type="button" hx-delete="/red-alert" hx-target="next section" hx-confirm="you sure bout that?"
+        class="bg-red-500 p-4 rounded uppercase" hx-push-url="false">Delete
+        All Projects
+      </button>
+    </div>
+  </form>
 </div>
 
-<section></section>
+<!-- Empty, to be populated by a list of projects -->
+<section class="mt-20"></section>
 
 {% endblock %}

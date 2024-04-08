@@ -18,7 +18,7 @@ def hello_world():
 @app.route('/red-alert', methods=['DELETE'])
 def red_alert():
   db.users.delete_many({})
-  return '<p>Deleted all users</p>'
+  return '<p>Deleted all projects</p>'
 
 @app.route('/users', methods=['GET'])
 def get_all_users():
@@ -28,7 +28,7 @@ def get_all_users():
 
 @app.route('/users', methods=['POST'])
 def create_profile():
-  create_user_fields = ['name', 'email']
+  create_user_fields = ['name']
   user = fields_from_request_form(create_user_fields, request.form)
   user['created_at'] = datetime.now()
   print(user)

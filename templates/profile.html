@@ -3,27 +3,74 @@
 {% block content %}
 
 <header class="bg-gray-800 text-white p-4 full-width content-grid">
-  <h1 class="text-6xl">Profile</h1>
-  <p class="text-xl opacity-80">
-    <a href="/" hx-get="/" hx-target="body" hx-push-url="true">&larr; Home</a>
-  </p>
+  <h1 class="text-2xl md:text-6xl">
+    <a href="/" hx-get="/" hx-target="body" hx-push-url="true">&larr; Projects</a>
+  </h1>
 </header>
 
+<!-- spacer. standardize spacing in this app somewhere pls -->
+<!-- TODO clean up app's styles. I've got the look more or less, now make it readable -->
+<div class="mt-[10vh]"></div>
+
 {% if user %}
-<section>
-  <p>Username: {{ user.name }}</p>
-  <p>Email: {{ user.email }}</p>
-  <p>Created: {{ user.created_at }}</p>
-</section>
+<div class="flex flex-col md:flex-row gap-20">
+  <style type="text/css">
+    .copy-button {
+      padding: 1em 2em;
 
-<section class="flow">
-  <h2 class="text-2xl">{{ user.name }}'s Links</h2>
+      background-color: #f0f0f0;
 
-  {% if user.links %}
-  <ul class="grid grid-cols-1 gap-1 mx-auto">
-    {% for link in user.links %}
-    <li class="flex">
-      <a href="{{ link.url }}" class="
+      text-decoration: none;
+      box-shadow: 0 0.25em 0.25em rgba(0, 0, 0, 10%);
+      border-radius: 1em;
+
+      cursor: pointer;
+    }
+
+    .copied {
+      background-color: #4CAF50;
+      color: white;
+      content: 'Copied to clipboard 📋';
+    }
+
+    .copied:hover,
+    .copied:focus-within {
+      background-color: #46a049;
+    }
+  </style>
+
+  <section class="flex-1 flow gap">
+    <h2 class="text-xl uppercase text-center text-gray-400">Add a New Link</h2>
+
+    <form hx-post="/users/{{ user.name }}/links" hx-target="body" class="rounded grid gap-4">
+      <div class="grid">
+        <label for="title" class="bold">
+          Campaign Title
+        </label>
+        <input type="text" id="title" name="title" placeholder="Campaign name" class=" rounded p-2 border" required>
+      </div>
+
+      <div class="grid">
+        <label for="url" class="bold">
+          Link
+        </label>
+        <input type="url" id="url" name="url" placeholder="URL..." class="rounded p-2 border" required>
+      </div>
+
+      <button class="bg-blue-500 text-white p-4 rounded block grid mt-4 text-xl text-bold">SAVE</button>
+    </form>
+
+    <script src="/static/js/copy-link.js"></script>
+  </section>
+
+  <section class="flow-lg flex-1">
+    <h2 class="text-xl uppercase text-center text-gray-400">{{ user.name }} Links</h2>
+
+    {% if user.links %}
+    <ul class="grid grid-cols-1 gap-1 mx-auto gap-5">
+      {% for link in user.links %}
+      <li class="flex gap-4">
+        <button class="copy-button
         grow
         block p-4
         h-100 w-100
@@ -33,44 +80,21 @@
         hover:bg-slate-100   focus-within:bg-slate-100
         hover:underline      focus-within:underline
         transition
-        ">
-        {{ link.title }}
-      </a>
+        " data-text="{{ link.url }}" class="bg-blue-500 text-white p-4 rounded">
+          Copy &quot;{{ link.title }}&quot;
+        </button>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="text-gray-400 italic">Add a link, and it will appear over here, ready for you to copy!</p>
+    {% endif %}
+  </section>
+</div>
 
-      <button hx-delete="/users/{{ user.name }}/links/{{ link.id }}" hx-target="body"
-        class="bg-red-500 text-white p-4 rounded">
-        Delete
-      </button>
-    </li>
-    {% endfor %}
-  </ul>
-  {% else %}
-  <p class="text-gray-400 italic">(so empty)</p>
-  {% endif %}
-
-  <form hx-post="/users/{{ user.name }}/links" hx-target="body" class="bg-gray-600 p-4 rounded flow grid">
-    <h2 class="text-2xl text-white">Want to add one?</h2>
-
-    <div class="grid">
-      <label for="title" class="bold text-white">
-        Title
-      </label>
-      <input type="text" id="title" name="title" placeholder="Title..." class="rounded p-2" required>
-    </div>
-
-    <div class="grid">
-      <label for="url" class="bold text-white">
-        URL
-      </label>
-      <input type="url" id="url" name="url" placeholder="URL..." class="rounded p-2" required>
-    </div>
-
-    <button class="bg-blue-500 text-white p-4 rounded block">Add Link</button>
-  </form>
-</section>
 {% else %}
-<div class="p-4">
-  <p>No user found</p>
+<div class="p-4 text-center">
+  <p>No user found. Do you have the right link?</p>
 </div>
 {% endif %}
 

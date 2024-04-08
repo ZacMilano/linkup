@@ -10,9 +10,15 @@ make install
 make dev
 ```
 
+## you need a `.env` file
+
+```env
+MONGO_USER=linkUser
+MONGO_PASSWORD=secure-password
+```
+
 ## having issues? clear the cache
 
 ```bash
 make clean
 ```
-

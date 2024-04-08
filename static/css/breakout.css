@@ -42,6 +42,14 @@ img.full-width {
   object-fit: cover;
 }
 
+.flow-sm > * + * {
+  margin-top: var(1em);
+}
+
 .flow > * + * {
-  margin-top: var(--flow-spacing, 1em);
+  margin-top: var(2em);
+}
+
+.flow-lg > * + * {
+  margin-top: var(4em);
 }
