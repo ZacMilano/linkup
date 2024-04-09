@@ -7,7 +7,7 @@
     <h1 class="text-6xl">Link Me Up Scotty</h1>
   </header>
 
-  <form class="rounded grid gap-8" hx-post="/users" hx-target="body">
+  <form class="rounded grid gap-8" hx-post="/projects" hx-target="body">
     <div class="grid gap-2">
       <label for="name" class="bold">
         Project name:
@@ -18,7 +18,7 @@
     <div class="grid lg:grid-cols-3 gap-2 text-xl text-white">
       <button class="rounded bg-green-700 px-6 py-4 uppercase" hx-push-url="true">Create Project</button>
 
-      <button type="button" hx-get="/users" hx-target="next section" class="bg-blue-900 p-4 rounded uppercase">
+      <button type="button" hx-get="/projects" hx-target="next section" class="bg-blue-900 p-4 rounded uppercase">
         Show All Projects
       </button>
 

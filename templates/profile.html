@@ -12,7 +12,7 @@
 <!-- TODO clean up app's styles. I've got the look more or less, now make it readable -->
 <div class="mt-[10vh]"></div>
 
-{% if user %}
+{% if project %}
 <div class="flex flex-col md:flex-row gap-20">
   <style type="text/css">
     .copy-button {
@@ -42,7 +42,7 @@
   <section class="flex-1 flow gap">
     <h2 class="text-xl uppercase text-center text-gray-400">Add a New Link</h2>
 
-    <form hx-post="/users/{{ user.name }}/links" hx-target="body" class="rounded grid gap-4">
+    <form hx-post="/projects/{{ project.name }}/links" hx-target="body" class="rounded grid gap-4">
       <div class="grid">
         <label for="title" class="bold">
           Campaign Title
@@ -64,11 +64,11 @@
   </section>
 
   <section class="flow-lg flex-1">
-    <h2 class="text-xl uppercase text-center text-gray-400">{{ user.name }} Links</h2>
+    <h2 class="text-xl uppercase text-center text-gray-400">{{ project.name }} Links</h2>
 
-    {% if user.links %}
+    {% if project.links %}
     <ul class="grid grid-cols-1 gap-1 mx-auto gap-5">
-      {% for link in user.links|reverse %}
+      {% for link in project.links|reverse %}
       <li class="flex gap-4">
         <button class="copy-button
         grow
@@ -94,7 +94,7 @@
 
 {% else %}
 <div class="p-4 text-center">
-  <p>No user found. Do you have the right link?</p>
+  <p>No project found. Do you have the right link?</p>
 </div>
 {% endif %}
 
